@@ -1,0 +1,69 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://wiki.ros.org/xacro" name="ur5_gripper_robot">
+  <!--
+    This is a convenience top-level xacro which loads the macro for the UR5e
+    which defines the default values for the various "parameters files"
+    parameters for a UR5e.
+
+    This file is only useful when loading a stand-alone, completely isolated
+    robot with only default values for all parameters such as the kinematics,
+    visual and physical parameters and joint limits.
+
+    This file is not intended to be integrated into a larger scene or other
+    composite xacro.
+
+    Instead, xacro:include 'inc/ur5e_macro.xacro' and override the defaults
+    for the arguments to that macro.
+
+    Refer to 'inc/ur_macro.xacro' for more information.
+  -->
+  <xacro:include filename="$(find ur_description)/urdf/inc/ur5_cabinet_macro.xacro"/>
+  <xacro:ur5_robot prefix="" />
+  <!-- robotiq 85 gripper xacro -->
+  <xacro:include filename="$(find robotiq_2f_85_gripper_visualization)/urdf/robotiq_arg2f_85_model_macro.xacro" />
+
+  <xacro:include filename="$(find robotiq_ft_sensor)/urdf/robotiq_ft300.urdf.xacro" />
+  <!-- robotiq FT_300 sensor-->
+  <xacro:robotiq_ft300 prefix="" parent="tool0" >
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+  </xacro:robotiq_ft300>
+
+  <!-- gripper -->
+  <xacro:robotiq_arg2f_85 prefix="" />
+
+
+
+
+<!-- <xacro:arg name="kinematics_config" default="$(find ur_description)/config/ur5_ft_gripper/default_kinematics.yaml"/>
+  <xacro:ur5_robot prefix="" joint_limited="true"
+    shoulder_pan_lower_limit="${-pi}" shoulder_pan_upper_limit="${pi}"
+    shoulder_lift_lower_limit="${-pi*(1/2)}" shoulder_lift_upper_limit="${pi}"
+    elbow_joint_lower_limit="${-pi}" elbow_joint_upper_limit="${pi}"
+    wrist_1_lower_limit="${-pi}" wrist_1_upper_limit="${pi}"
+    wrist_2_lower_limit="${-pi}" wrist_2_upper_limit="${pi}"
+    wrist_3_lower_limit="${-pi}" wrist_3_upper_limit="${pi}"
+    transmission_hw_interface="$(arg transmission_hw_interface)"
+    kinematics_file="${load_yaml('$(arg kinematics_config)')}"
+  />  -->
+
+
+
+  <joint name="ft_gripper_joint" type="fixed">
+    <parent link= "robotiq_ft_frame_id" />
+    <child link = "robotiq_arg2f_base_link" />
+    <origin xyz="0.0 0.0 0.0" rpy="0.0 0.0 1.57" />
+  </joint>
+  <!-- <link name="world"/> -->
+  <xacro:include filename="$(find ur_description)/urdf/inc/UR5_table.urdf" />
+  <xacro:include filename="$(find ur_description)/urdf/inc/cabinet1215.urdf" />
+  <joint name="world_table" type="fixed">
+    <parent link="base_link" />
+    <child link = "UR5_table" />
+    <origin xyz="0.0 0.0 0.35" rpy="0.0 0.0 0.0" />
+  </joint> 
+  <joint name="world_cabin" type="fixed">
+    <parent link="base_link" />
+    <child link = "cabinet1215" />
+    <origin xyz="-0.61 0.6 1.17" rpy="0.0 0.0 0.0" />
+  </joint> 
+</robot>

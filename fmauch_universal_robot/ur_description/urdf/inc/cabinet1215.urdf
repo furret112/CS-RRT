@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- This URDF was automatically created by SolidWorks to URDF Exporter! Originally created by Stephen Brawner (brawner@gmail.com) 
+     Commit Version: 1.5.1-0-g916b5db  Build Version: 1.5.7152.31018
+     For more information, please see http://wiki.ros.org/sw_urdf_exporter -->
+<robot
+  name="cabinet1215">
+  <link
+    name="cabinet1215">
+    <inertial>
+      <origin
+        xyz="0.12199 2.0264E-17 -0.67033"
+        rpy="0 0 0" />
+      <mass
+        value="101.08" />
+      <inertia
+        ixx="1.8891"
+        ixy="-0.3545"
+        ixz="-1.001E-15"
+        iyy="16.426"
+        iyz="-4.2748E-17"
+        izz="15.679" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="1.5707963267949 0 1.5707963267949" />
+      <geometry>
+        <mesh
+          filename="package://ur_description/meshes/cabinet/cabinet1215.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.79216 0.81961 0.93333 1" />
+        <texture
+          filename="package://ur_description/textures/" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="1.5707963267949 0 1.5707963267949" />
+      <geometry>
+        <mesh
+          filename="package://ur_description/meshes/cabinet/cabinet1215.STL" />
+      </geometry>
+    </collision>
+  </link>
+</robot>

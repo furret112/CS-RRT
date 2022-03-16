@@ -67,7 +67,7 @@ source ~/ws_moveit/devel/setup.bash
 3. change all RRT in two file to my_RRT
 ```
 
-![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/affca4c5-e71d-4716-b7ed-bb04cbc06b7a/1.png)
+![Untitled](https://github.com/furret112/CS-RRT/blob/main/1.png)
 
 ![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/53894306-3b6d-483a-b8a7-83cc466e832b/Untitled.png)
 

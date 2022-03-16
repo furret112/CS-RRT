@@ -69,9 +69,9 @@ source ~/ws_moveit/devel/setup.bash
 
 ![Untitled](https://github.com/furret112/CS-RRT/blob/main/1.png)
 
-![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/53894306-3b6d-483a-b8a7-83cc466e832b/Untitled.png)
+![Untitled](https://github.com/furret112/CS-RRT/blob/main/2.png)
 
-![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/2888daef-01e3-41db-afb1-822a3d98e082/Untitled.png)
+![Untitled](https://github.com/furret112/CS-RRT/blob/main/3.png)
 
 - at ~/workspace/src/moveit/moveit_planners/ompl/ompl_interface/src/**planning_context_manager.cpp**
 1.  add my_RRT relate
@@ -80,7 +80,7 @@ source ~/ws_moveit/devel/setup.bash
 #include </home/<user>/<your workspace>/src/ompl/src/ompl/geometric/planners/rrt/my_RRT.h>
 ```
 
-![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/0fe0bd37-2085-4402-9954-96b04fbb52cb/Untitled.png)
+![Untitled](https://github.com/furret112/CS-RRT/blob/main/4.png)
 
 1. register your planner in same file
 
@@ -90,7 +90,7 @@ registerPlannerAllocator(  //
       std::bind(&allocatePlanner<og::RRT>, std::placeholders::_1, std::placeholders::_2, std::placeholders::_3));
 ```
 
-![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/748f7205-a01b-41a1-88f9-843ccc8800b3/Untitled.png)
+![Untitled](https://github.com/furret112/CS-RRT/blob/main/5.png)
 
 - at UR5_control/src/univeral_robot/ur5_moveit_config/config 的 **ompl_planning.yaml**
 1.  add your planner
@@ -102,7 +102,7 @@ myRRTkConfigDefault:
     goal_bias: 0.05  # When close to goal select goal, with this probability? default: 0.05
 ```
 
-![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/636b56a1-8468-4bef-9927-6351afcb47df/Untitled.png)
+![Untitled](https://github.com/furret112/CS-RRT/blob/main/6.png)
 
 1.  add your planner’s option below planner_configs:
 
@@ -110,7 +110,7 @@ myRRTkConfigDefault:
 - my_RRTkConfigDefault
 ```
 
-![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/a240d071-2f71-4e91-bf3e-0f8ff7762720/Untitled.png)
+![Untitled](https://github.com/furret112/CS-RRT/blob/main/7.png)
 
 ### 3. Compile
 
@@ -134,7 +134,7 @@ roslaunch ur5_moveit_config demo.launch
 2. check is there have **my_RRTkConfigDefault**
 3. Plan arm trajectory
 
-![Untitled](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/5e8775f1-5b52-4eb8-ab8f-bd343179a40f/Untitled.png)
+![Untitled](https://github.com/furret112/CS-RRT/blob/main/8.png)
 
 ---
 

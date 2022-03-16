@@ -1,6 +1,5 @@
 # MoveIt +  customize planner
 
----
 
 !build on ubuntu 18.04
 

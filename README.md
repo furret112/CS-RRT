@@ -137,8 +137,27 @@ roslaunch ur5_moveit_config demo.launch
 ![Untitled](https://github.com/furret112/CS-RRT/blob/main/8.png)
 
 ---
+### 5. Gazebo test
 
-### 5. Using CS-RRT on UR5
+```bash
+1. $ roslaunch ur_gazebo ur5_bringup.launch
+2. $ roslaunch ur5_moveit_config ur5_moveit_planning_execution.launch sim:=true
+
+3. you can control UR5 by using
+--------------------------------------------------------------------------
+"rviz"
+$ roslaunch ur5_moveit_config moveit_rviz.launch config:=true
+
+1. remenber to change "Fixd Frame" to "base link" 
+2. Add "MotionPlanning"
+3. In MotionPlanning->Planning Request->Planning Group
+   change "endeffector" to "manipulator"
+--------------------------------------------------------------------------
+"python"
+$ rosrun ur_move_test ur_move_test_node.py
+```
+
+### 6. Using CS-RRT on UR5
 
 ```bash
 # connect to UR5 

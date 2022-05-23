@@ -27,7 +27,7 @@ cd ~/ws_moveit
 source /opt/ros/melodic/setup.bash
 wstool init src
 wstool merge -t src https://raw.githubusercontent.com/ros-planning/moveit/master/moveit.rosinstall
-wstool update -t src ("after do this cmd. it should add 9 file in your workspace")
+wstool update -t src ("after do this cmd. it should add 9 folds in your workspace")
 rosdep install -y --from-paths src --ignore-src --rosdistro ${ROS_DISTRO}
 catkin config --extend /opt/ros/${ROS_DISTRO} --cmake-args -DCMAKE_BUILD_TYPE=Release 
 

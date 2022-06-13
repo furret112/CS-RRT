@@ -92,7 +92,7 @@ registerPlannerAllocator(  //
 
 ![Untitled](https://github.com/furret112/CS-RRT/blob/main/5.png)
 
-- at UR5_control/src/univeral_robot/ur5_moveit_config/config 的 **ompl_planning.yaml**
+- at fmauch_universal_robot/ur5_moveit_config/config 的 **ompl_planning.yaml**
 1.  add your planner
 
 ```yaml

@@ -67,11 +67,11 @@ source ~/ws_moveit/devel/setup.bash
 3. change all RRT in two file to my_RRT
 ```
 
-![Untitled](https://github.com/furret112/CS-RRT/blob/main/1.png)
+![1](https://user-images.githubusercontent.com/50554086/175890495-dbbbf837-8bbf-4f11-bd9d-45fb3c396d09.png)
 
-![Untitled](https://github.com/furret112/CS-RRT/blob/main/2.png)
+![2](https://user-images.githubusercontent.com/50554086/175891100-8acae939-3dbd-449a-b3cd-5abaa924f5ac.png)
 
-![Untitled](https://github.com/furret112/CS-RRT/blob/main/3.png)
+![3](https://user-images.githubusercontent.com/50554086/175891143-79154765-21a7-4dbd-8442-6c8723c2d087.png)
 
 - at ~/workspace/src/moveit/moveit_planners/ompl/ompl_interface/src/**planning_context_manager.cpp**
 1.  add my_RRT relate
@@ -80,7 +80,7 @@ source ~/ws_moveit/devel/setup.bash
 #include </home/<user>/<your workspace>/src/ompl/src/ompl/geometric/planners/rrt/my_RRT.h>
 ```
 
-![Untitled](https://github.com/furret112/CS-RRT/blob/main/4.png)
+![4](https://user-images.githubusercontent.com/50554086/175891166-d9830205-6744-4296-9c86-33cc70bacfe0.png)
 
 1. register your planner in same file
 
@@ -90,7 +90,7 @@ registerPlannerAllocator(  //
       std::bind(&allocatePlanner<og::RRT>, std::placeholders::_1, std::placeholders::_2, std::placeholders::_3));
 ```
 
-![Untitled](https://github.com/furret112/CS-RRT/blob/main/5.png)
+![5](https://user-images.githubusercontent.com/50554086/175891217-47c77953-cc10-43f9-9a0a-f3a8f60ae050.png)
 
 - at UR5_control/src/univeral_robot/ur5_moveit_config/config/**ompl_planning.yaml**
 1.  add your planner
@@ -102,7 +102,7 @@ myRRTkConfigDefault:
     goal_bias: 0.05  # When close to goal select goal, with this probability? default: 0.05
 ```
 
-![Untitled](https://github.com/furret112/CS-RRT/blob/main/6.png)
+![6](https://user-images.githubusercontent.com/50554086/175891242-295174e2-24ba-4b23-8a48-9d7c2d33df06.png)
 
 1.  add your planner’s option below planner_configs:
 
@@ -110,7 +110,7 @@ myRRTkConfigDefault:
 - my_RRTkConfigDefault
 ```
 
-![Untitled](https://github.com/furret112/CS-RRT/blob/main/7.png)
+![7](https://user-images.githubusercontent.com/50554086/175891273-29355889-9da3-412f-b4a9-6ecedc3356b1.png)
 
 ### 3. Compile
 
@@ -134,7 +134,7 @@ roslaunch ur5_moveit_config demo.launch
 2. check is there have **my_RRTkConfigDefault**
 3. Plan arm trajectory
 
-![Untitled](https://github.com/furret112/CS-RRT/blob/main/8.png)
+![8](https://user-images.githubusercontent.com/50554086/175891293-76c6e262-b8fe-4bc7-96f8-e7e84f08bbbe.png)
 
 ---
 ### 5. Gazebo test

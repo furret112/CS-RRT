@@ -2,6 +2,7 @@
 
 
 !build on ubuntu 18.04
+!remove Moveit from this branch
 
 ### 1. install MoveIt from source
 
